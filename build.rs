@@ -66,6 +66,8 @@ fn main() {
         ("just", "just"),
         #[cfg(feature = "fd")]
         ("fd", "fd"),
+        #[cfg(feature = "docker-compose")]
+        ("docker-compose", "docker-compose"),
     ];
 
     let mut installed_any = false;

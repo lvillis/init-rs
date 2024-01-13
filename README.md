@@ -22,19 +22,30 @@
 
 ---
 
-When using GitHub to download open source software in some areas of Blue Planet, it may fail due to poor network quality. 
+When using GitHub to download open source software in some areas of Blue Planet, it may fail due to poor network
+quality.
 This project aims to install these software through cargo. Use the rust registry to improve network quality.
 
+## Feature flags
+
+|      Name      |                        Description                         | Version | Default? |
+|:--------------:|:----------------------------------------------------------:|:-------:|:--------:|
+|      just      |                  🤖 Just a command runner                  | 1.23.0  |    ✔️    |
+|       fd       | 📂 A simple, fast and user-friendly alternative to 'find'  |  8.2.1  |    ❌     |
+| docker-compose | 🐳 Define and run multi-container applications with Docker | 1.29.2  |    ❌     |
 
 
 ## Installation
 
 ### install rust
+
 ```bash
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 cargo install init-rs
 ```
+
 or
+
 ```shell
 export RUSTUP_DIST_SERVER="https://rsproxy.cn"
 export RUSTUP_UPDATE_ROOT="https://rsproxy.cn/rustup"
