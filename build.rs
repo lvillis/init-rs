@@ -41,7 +41,7 @@ pub fn copy_binary(
     // chmod +x
     #[cfg(target_family = "unix")]
     {
-        let permissions = Permissions::from_mode(0o755);
+        let permissions = fs::Permissions::from_mode(0o755);
         fs::set_permissions(&target_path, permissions)
             .map_err(|e| format!("Failed to set permissions for '{}': {}", binary_name, e))?;
     }
