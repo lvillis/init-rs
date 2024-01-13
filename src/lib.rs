@@ -3,7 +3,7 @@
 //! Use the world's best Cargo to install software, bypassing GitHub.
 
 use std::fs;
-#[cfg(target_family = "unix")]
+#[cfg(target_family = "linux")]
 use std::fs::Permissions;
 use std::path::{Path, PathBuf};
 
