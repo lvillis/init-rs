@@ -1,6 +1,6 @@
 [package]
 name = "init-rs"
-version = "0.0.14"
+version = "0.0.15"
 authors = ["lvillis<lvillis@outlook.com>"]
 edition = "2021"
 description = "Use the world's best Cargo to install software, bypassing GitHub."
