@@ -42,24 +42,18 @@ pub fn copy_binary(binary_name: &str, source_dir: &Path, target_dir: &Path) -> R
 
 #[cfg(test)]
 mod tests {
-    #[cfg(target_os = "linux")]
     use super::*;
-    #[cfg(target_os = "linux")]
-    use std::fs;
-    #[cfg(target_os = "linux")]
     use std::fs::{self, File};
-    #[cfg(target_os = "linux")]
     use std::io::Write;
-    #[cfg(target_os = "linux")]
     use tempfile::tempdir;
 
     /// Test the ability to copy binary files on a Linux system.
-    #[cfg(target_os = "linux")]
     #[test]
     fn test_copy_binary() {
         let temp_dir = tempdir().unwrap();
         let source_dir = temp_dir.path();
-        let target_dir = tempdir().unwrap().path();
+        let binding = tempdir().unwrap();
+        let target_dir = binding.path();
 
         let binary_name = "test_binary";
         let source_file_path = source_dir.join(binary_name);
