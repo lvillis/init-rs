@@ -1,6 +1,6 @@
 [package]
 name = "init-rs"
-version = "0.0.4"
+version = "0.0.5"
 authors = ["lvillis<lvillis@outlook.com>"]
 edition = "2021"
 description = "Use the world's best Cargo to install software, bypassing GitHub."
@@ -15,6 +15,10 @@ include = ["bin/*", "src/**/*", "Cargo.toml", "build.rs"]
 name = "init_rs"
 path = "src/lib.rs"
 doctest = false
+
+[[bin]]
+name = "init-rs"
+path = "src/main.rs"
 
 [features]
 default = ["just"]
