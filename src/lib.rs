@@ -21,7 +21,6 @@ use std::fs;
 /// # Example
 ///
 /// ```
-/// # #[cfg(target_os = "linux")]
 /// # {
 /// let source_dir = std::path::Path::new(".");
 /// let target_dir = std::path::Path::new("/usr/local/bin");
