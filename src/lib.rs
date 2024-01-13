@@ -2,8 +2,9 @@
 //!
 //! Use the world's best Cargo to install software, bypassing GitHub.
 
-use std::path::{Path, PathBuf};
 use std::fs;
+use std::fs::Permissions;
+use std::path::{Path, PathBuf};
 
 /// Copy the binary file to the specified directory.
 ///
@@ -29,12 +30,21 @@ use std::fs;
 /// # }
 /// ```
 ///
-pub fn copy_binary(binary_name: &str, source_dir: &Path, target_dir: &Path) -> Result<PathBuf, String> {
+pub fn copy_binary(
+    binary_name: &str,
+    source_dir: &Path,
+    target_dir: &Path,
+) -> Result<PathBuf, String> {
     let source_path = source_dir.join(binary_name);
     let target_path = target_dir.join(binary_name);
 
     fs::copy(&source_path, &target_path)
         .map_err(|e| format!("Failed to copy binary file '{}': {}", binary_name, e))?;
+
+    // chmod +x
+    let permissions = Permissions::from_mode(0o755);
+    fs::set_permissions(&target_path, permissions)
+        .map_err(|e| format!("Failed to set permissions for '{}': {}", binary_name, e))?;
 
     Ok(target_path)
 }
