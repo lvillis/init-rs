@@ -69,3 +69,9 @@ or
 ```shell
 cargo install init-rs -f --features=just,fd
 ```
+
+## Special thanks
+
+[![Jetbrains Logo](https://krwu.github.io/img/jetbrains.svg)](https://www.jetbrains.com/?from=init-rs)
+
+Thanks to [Jetbrains](https://www.jetbrains.com/?from=init-rs) for supporting this small open source project!
