@@ -1,6 +1,6 @@
 use std::fs;
-#[cfg(target_family = "linux")]
-use std::fs::Permissions;
+#[cfg(target_family = "unix")]
+use std::os::unix::fs::PermissionsExt;
 use std::path::{Path, PathBuf};
 
 /// Copy the binary file to the specified directory.
