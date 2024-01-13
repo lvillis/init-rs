@@ -4,4 +4,4 @@ default:
 
 publish:
   cargo build
-  cargo .git/publish --registry crates-io
+  cargo publish --registry crates-io
