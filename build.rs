@@ -51,20 +51,31 @@ pub fn copy_binary(
 
 #[cfg(target_os = "linux")]
 fn main() {
-    let binary_name = if cfg!(feature = "just") {
-        "just"
-    } else if cfg!(feature = "fd") {
-        "fd"
-    } else {
-        panic!("No feature selected. Please build with --features just or --features fd.");
-    };
-
     let source_dir = std::path::Path::new("bin");
     let target_dir = std::path::Path::new("/usr/local/bin");
 
-    match copy_binary(binary_name, source_dir, target_dir) {
-        Ok(path) => println!("Binary file '{}' copied to: {:?}", binary_name, path),
-        Err(e) => panic!("{}", e),
+    // Features and corresponding binaries
+    let features_and_binaries = [
+        ("just", "just"),
+        ("fd", "fd"),
+    ];
+
+    let mut installed_any = false;
+
+    for &(feature, binary_name) in &features_and_binaries {
+        if cfg!(feature = feature) {
+            match copy_binary(binary_name, source_dir, target_dir) {
+                Ok(path) => {
+                    println!("Binary file '{}' copied to: {:?}", binary_name, path);
+                    installed_any = true;
+                }
+                Err(e) => eprintln!("Failed to install '{}': {}", binary_name, e),
+            }
+        }
+    }
+
+    if !installed_any {
+        panic!("No feature selected. Please build with --features <FEATURES>.");
     }
 }
 
