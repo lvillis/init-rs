@@ -28,11 +28,10 @@ This project aims to install these software through cargo. Use the rust registry
 
 ## Feature flags
 
-|      Name      |                        Description                         | Version | Default? |
-|:--------------:|:----------------------------------------------------------:|:-------:|:--------:|
-|      just      |                  🤖 Just a command runner                  | 1.23.0  |    ✔️    |
-|       fd       | 📂 A simple, fast and user-friendly alternative to 'find'  |  9.0.0  |    ❌     |
-| docker-compose | 🐳 Define and run multi-container applications with Docker | 2.24.0  |    ❌     |
+| Name |                        Description                        | Version | Default? |
+|:----:|:---------------------------------------------------------:|:-------:|:--------:|
+| just |                 🤖 Just a command runner                  | 1.23.0  |    ✔️    |
+|  fd  | 📂 A simple, fast and user-friendly alternative to 'find' |  9.0.0  |    ❌     |
 
 ## Installation
 
