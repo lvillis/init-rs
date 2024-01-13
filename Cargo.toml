@@ -3,13 +3,15 @@ name = "init-rs"
 version = "0.0.1"
 authors = ["lvillis<lvillis@outlook.com>"]
 edition = "2021"
-
 description = "Use the world's best Cargo to install software, bypassing GitHub."
 license = "MIT"
 repository = "https://github.com/lvillis/init-rs"
 homepage = "https://github.com/lvillis/init-rs"
 documentation = "https://github.com/lvillis/init-rs/README.md"
-
 build = "build.rs"
-
 include = ["bin/*", "src/**/*", "Cargo.toml", "build.rs"]
+
+[features]
+default = ["just"]
+just = []
+fd = []
