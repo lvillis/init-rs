@@ -1,4 +1,5 @@
 use std::fs;
+#[cfg(target_family = "unix")]
 use std::fs::Permissions;
 use std::path::{Path, PathBuf};
 
@@ -38,9 +39,12 @@ pub fn copy_binary(
         .map_err(|e| format!("Failed to copy binary file '{}': {}", binary_name, e))?;
 
     // chmod +x
-    let permissions = Permissions::from_mode(0o755);
-    fs::set_permissions(&target_path, permissions)
-        .map_err(|e| format!("Failed to set permissions for '{}': {}", binary_name, e))?;
+    #[cfg(target_family = "unix")]
+    {
+        let permissions = Permissions::from_mode(0o755);
+        fs::set_permissions(&target_path, permissions)
+            .map_err(|e| format!("Failed to set permissions for '{}': {}", binary_name, e))?;
+    }
 
     Ok(target_path)
 }
