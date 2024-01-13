@@ -27,4 +27,3 @@ fd = []
 
 [dependencies]
 tempfile = "3.9.0"
-tempdir = "0.3.7"

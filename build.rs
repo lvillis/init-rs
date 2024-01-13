@@ -78,8 +78,6 @@ fn main() {
     }
 }
 
-// copy_binary 函数保持不变
-
 #[cfg(not(target_os = "linux"))]
 fn main() {
     if cfg!(debug_assertions) {

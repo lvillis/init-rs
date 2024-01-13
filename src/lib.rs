@@ -58,15 +58,15 @@ mod tests {
     use super::*;
     use std::fs::{self, File};
     use std::io::Write;
-    use tempfile::tempdir;
+    use tempfile::TempDir;
 
     /// Test the ability to copy binary files on a Linux system.
     #[test]
     fn test_copy_binary() {
-        let temp_dir = tempdir().unwrap();
+        let temp_dir = TempDir::new().unwrap();
         let source_dir = temp_dir.path();
-        let binding = tempdir().unwrap();
-        let target_dir = binding.path();
+        let target_temp_dir = TempDir::new().unwrap();
+        let target_dir = target_temp_dir.path();
 
         let binary_name = "test_binary";
         let source_file_path = source_dir.join(binary_name);
@@ -79,8 +79,5 @@ mod tests {
 
         assert!(copy_result.is_ok());
         assert!(target_dir.join(binary_name).exists());
-
-        // Cleanup: Delete temporary files created
-        fs::remove_file(source_file_path).unwrap();
     }
 }
