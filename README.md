@@ -1,6 +1,6 @@
-<div style="text-align: right;">Table of Contents↗️</div>
+<div align=right>Table of Contents↗️</div>
 
-<h1 style="text-align: center;"><code>init-rs</code></h1>
+<h1 align=center><code>just</code></h1>
 
 <p style="text-align: center;">Use the world's best Cargo to install software, bypassing GitHub.</p>
 
