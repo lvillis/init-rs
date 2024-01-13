@@ -54,30 +54,31 @@ fn main() {
     let source_dir = std::path::Path::new("bin");
     let target_dir = std::path::Path::new("/usr/local/bin");
 
-    // Features and corresponding binaries
-    let features_and_binaries = [
+    let features_and_binaries = vec![
+        #[cfg(feature = "just")]
         ("just", "just"),
+        #[cfg(feature = "fd")]
         ("fd", "fd"),
     ];
 
     let mut installed_any = false;
 
     for &(feature, binary_name) in &features_and_binaries {
-        if cfg!(feature = feature) {
-            match copy_binary(binary_name, source_dir, target_dir) {
-                Ok(path) => {
-                    println!("Binary file '{}' copied to: {:?}", binary_name, path);
-                    installed_any = true;
-                }
-                Err(e) => eprintln!("Failed to install '{}': {}", binary_name, e),
+        match copy_binary(binary_name, source_dir, target_dir) {
+            Ok(path) => {
+                println!("Binary file '{}' copied to: {:?}", binary_name, path);
+                installed_any = true;
             }
+            Err(e) => eprintln!("Failed to install '{}': {}", binary_name, e),
         }
     }
 
     if !installed_any {
-        panic!("No feature selected. Please build with --features <FEATURES>.");
+        panic!("No feature selected or installation failed. Please ensure features are enabled and valid.");
     }
 }
+
+// copy_binary 函数保持不变
 
 #[cfg(not(target_os = "linux"))]
 fn main() {
