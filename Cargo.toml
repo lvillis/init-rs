@@ -11,7 +11,15 @@ documentation = "https://github.com/lvillis/init-rs/README.md"
 build = "build.rs"
 include = ["bin/*", "src/**/*", "Cargo.toml", "build.rs"]
 
+[lib]
+name = "init_rs"
+path = "src/lib.rs"
+
 [features]
 default = ["just"]
 just = []
 fd = []
+
+[dependencies]
+tempfile = "3.9.0"
+tempdir = "0.3.7"
