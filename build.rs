@@ -1,4 +1,5 @@
 use std::fs;
+use std::env;
 #[cfg(target_family = "unix")]
 use std::os::unix::fs::PermissionsExt;
 use std::path::{Path, PathBuf};
@@ -51,6 +52,12 @@ pub fn copy_binary(
 
 #[cfg(target_os = "linux")]
 fn main() {
+    // Skip binary installation when building documentation on docs.rs
+    if env::var("DOCS_RS").is_ok() {
+        println!("Skipping binary installation on docs.rs");
+        return;
+    }
+
     let source_dir = std::path::Path::new("bin");
     let target_dir = std::path::Path::new("/usr/local/bin");
 
@@ -83,6 +90,6 @@ fn main() {
     if cfg!(debug_assertions) {
         println!("Running in local development (debug) mode on non-Linux OS...");
     } else {
-        panic!("Non-Linux OS detected: {}", std::env::consts::OS);
+        panic!("Non-Linux OS detected: {}", env::consts::OS);
     }
 }
