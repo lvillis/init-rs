@@ -68,6 +68,8 @@ fn main() {
         ("fd", "fd"),
         #[cfg(feature = "lll")]
         ("lll", "lll"),
+        #[cfg(feature = "tcping")]
+        ("tcping", "tcping"),
     ];
 
     let mut installed_any = false;

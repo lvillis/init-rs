@@ -28,11 +28,12 @@ This project aims to install these software through cargo. Use the rust registry
 
 ## Feature flags
 
-| Name |                        Description                        | Version | Default? |
-|:----:|:---------------------------------------------------------:|:-------:|:--------:|
-| just |                 🤖 Just a command runner                  | 1.23.0  |    ✔️    |
-|  fd  | 📂 A simple, fast and user-friendly alternative to 'find' |  9.0.0  |    ❌     |
-| lll  |       📜 A better `ls` with more usage information        |  1.0.0  |    ❌     |
+|  Name  |                          Description                          | Version | Default? |
+|:------:|:-------------------------------------------------------------:|:-------:|:--------:|
+|  just  |                   🤖 Just a command runner                    | 1.23.0  |    ✔️    |
+|   fd   |   📂 A simple, fast and user-friendly alternative to 'find'   |  9.0.0  |    ❌     |
+|  lll   |         📜 A better `ls` with more usage information          |  1.0.0  |    ❌     |
+| tcping | 🌐 A TCP ping utility to determine reachability of a TCP port |  0.3.0  |    ❌     |
 
 ## Installation
 
