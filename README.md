@@ -39,7 +39,6 @@ This project aims to install these software through cargo. Use the rust registry
 
 ```bash
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-cargo install init-rs
 ```
 
 or
