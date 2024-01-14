@@ -32,6 +32,7 @@ This project aims to install these software through cargo. Use the rust registry
 |:----:|:---------------------------------------------------------:|:-------:|:--------:|
 | just |                 🤖 Just a command runner                  | 1.23.0  |    ✔️    |
 |  fd  | 📂 A simple, fast and user-friendly alternative to 'find' |  9.0.0  |    ❌     |
+| lll  |       📜 A better `ls` with more usage information        |  1.0.0  |    ❌     |
 
 ## Installation
 

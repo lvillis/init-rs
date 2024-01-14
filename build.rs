@@ -66,6 +66,8 @@ fn main() {
         ("just", "just"),
         #[cfg(feature = "fd")]
         ("fd", "fd"),
+        #[cfg(feature = "lll")]
+        ("lll", "lll"),
     ];
 
     let mut installed_any = false;
