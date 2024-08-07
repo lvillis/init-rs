@@ -28,7 +28,7 @@ lll = []
 tcping = []
 
 [dependencies]
-tempfile = "3.11.0"
+tempfile = "3.12.0"
 
 [profile.dev]
 opt-level = 0
